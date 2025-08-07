@@ -19,7 +19,7 @@ const AddJob = () => {
         newJob.responsibilities = newJob.responsibilities.split('\n')
         console.log(newJob);
 
-        fetch('http://localhost:5000/jobs', {
+        fetch('https://job-portal-server-for-recruiter-par-snowy.vercel.app/jobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -38,13 +38,13 @@ const AuthProvider = ({ children }) => {
 
             if (currentUser?.email) {
                 const user = currentUser.email;
-                axios.post('http://localhost:5000/jwt', user, { withCredentials : true })
+                axios.post('https://job-portal-server-for-recruiter-par-snowy.vercel.app/jwt', user, { withCredentials : true })
                 .then(res => {
                     console.log('token set :', res.data);
                     setLoading(false);
                 })
             } else {
-                axios.post('http://localhost:5000/jwtClear', {}, { withCredentials : true })
+                axios.post('https://job-portal-server-for-recruiter-par-snowy.vercel.app/jwtClear', {}, { withCredentials : true })
                 .then(res => {
                     console.log('token cleared :', res.data)
                     setLoading(false);
