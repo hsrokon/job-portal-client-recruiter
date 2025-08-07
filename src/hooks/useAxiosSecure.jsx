@@ -10,29 +10,30 @@ const axiosInstance = axios.create({
 
 
 const useAxiosSecure = () => {
-    
+
     const { signOutUser } = useAuth();
-    
-    useEffect(()=>{
+
+    useEffect(()=> {
         axiosInstance.interceptors.response.use( response => {
             return response;
         } , error => {
-
             if (error.status === 401 || error.status === 403) {
                 signOutUser()
-                .then(()=> {
-                    console.log('Logged out user');
+                .then(()=>{
+                    console.log('User logged out');
                 })
                 .catch(error => {
-                    console.log(error);
+                    console.log('error logging out user', error);
                 })
             }
-
-            console.log('error caught in interceptor', error);
+            
             return Promise.reject(error);
+
         })
     },[])
 
+    
+    
     return axiosInstance;
 };
 
