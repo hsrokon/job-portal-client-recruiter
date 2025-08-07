@@ -10,7 +10,7 @@ const SignIn = () => {
     const { singInUser } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log('in signIn page', location)
+    // console.log('in signIn page', location)
     const from = location.state || '/';
 
     const handleSignIn = e => {
@@ -18,14 +18,14 @@ const SignIn = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
 
         singInUser(email, password)
             .then(result => {
                 console.log('sign in', result);
 
                 const user = {email : result.user.email};
-                console.log(user);
+                console.log('user from login', user);
                 
                 axios.post('https://job-portal-server-for-recruiter-par-snowy.vercel.app/jwt', user, { withCredentials : true })
                 .then( res => console.log(res.data))
