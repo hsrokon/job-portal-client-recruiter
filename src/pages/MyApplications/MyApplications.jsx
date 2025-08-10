@@ -15,7 +15,6 @@ const MyApplications = () => {
 
         console.log(user.email);
         
-
         // axios.get(`https://job-portal-server-for-recruiter-par-snowy.vercel.app/job-application?email=${user.email}`, {withCredentials : true})
         // .then(res => setJobs(res.data))
 
